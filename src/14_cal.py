@@ -22,3 +22,20 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+today = datetime.today()
+
+if len(sys.argv) == 2:
+    if ord(sys.argv[1]) >= 48 and ord(sys.argv[1]) <= 57:
+        print(calendar.month(today.year, int(sys.argv[1])))
+    else:
+        print("Please input one or two numbers, the first being the month and the second being the year")
+elif len(sys.argv) == 3:
+    if ord(sys.argv[1]) >= 48 and ord(sys.argv[1]) <= 57 and ord(sys.argv[2]) >= 48 and ord(sys.argv[2]) <= 57:
+        print(calendar.month(int(sys.argv[2]), int(sys.argv[1])))
+    else:
+        print("Please input one or two numbers, the first being the month and the second being the year")
+elif len(sys.argv) == 1:
+    print(calendar.month(today.year, today.month))
+else:
+    print("Please input one or two numbers, the first being the month and the second being the year")
